@@ -17,9 +17,9 @@ public class ICSSParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		PIXELSIZE=1, PERCENTAGE=2, SCALAR=3, COLOR=4, ID_IDENT=5, CLASS_IDENT=6, 
-		LOWER_IDENT=7, CAPITAL_IDENT=8, WS=9, OPEN_BRACE=10, CLOSE_BRACE=11, SEMICOLON=12, 
-		COLON=13, PLUS=14, MIN=15, MUL=16, ASSIGNMENT_OPERATOR=17;
+		OPEN_BRACE=1, CLOSE_BRACE=2, SEMICOLON=3, COLON=4, PLUS=5, MIN=6, MUL=7, 
+		ASSIGNMENT_OPERATOR=8, PIXELSIZE=9, PERCENTAGE=10, SCALAR=11, COLOR=12, 
+		ID_IDENT=13, CLASS_IDENT=14, LOWER_IDENT=15, CAPITAL_IDENT=16, WS=17;
 	public static final int
 		RULE_stylesheet = 0, RULE_stylerule = 1, RULE_selector = 2, RULE_body = 3, 
 		RULE_declaration = 4, RULE_property = 5, RULE_variable_assignment = 6, 
@@ -32,13 +32,12 @@ public class ICSSParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, null, null, null, null, null, null, null, null, "'{'", "'}'", 
-		"';'", "':'", "'+'", "'-'", "'*'", "':='"
+		null, "'{'", "'}'", "';'", "':'", "'+'", "'-'", "'*'", "':='"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "PIXELSIZE", "PERCENTAGE", "SCALAR", "COLOR", "ID_IDENT", "CLASS_IDENT", 
-		"LOWER_IDENT", "CAPITAL_IDENT", "WS", "OPEN_BRACE", "CLOSE_BRACE", "SEMICOLON", 
-		"COLON", "PLUS", "MIN", "MUL", "ASSIGNMENT_OPERATOR"
+		null, "OPEN_BRACE", "CLOSE_BRACE", "SEMICOLON", "COLON", "PLUS", "MIN", 
+		"MUL", "ASSIGNMENT_OPERATOR", "PIXELSIZE", "PERCENTAGE", "SCALAR", "COLOR", 
+		"ID_IDENT", "CLASS_IDENT", "LOWER_IDENT", "CAPITAL_IDENT", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -1112,23 +1111,23 @@ public class ICSSParser extends Parser {
 		"\3\2\2\2\30i\3\2\2\2\32\34\5\16\b\2\33\32\3\2\2\2\34\37\3\2\2\2\35\33"+
 		"\3\2\2\2\35\36\3\2\2\2\36#\3\2\2\2\37\35\3\2\2\2 \"\5\4\3\2! \3\2\2\2"+
 		"\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$&\3\2\2\2%#\3\2\2\2&\'\7\2\2\3\'\3\3\2"+
-		"\2\2(*\5\6\4\2)(\3\2\2\2*+\3\2\2\2+)\3\2\2\2+,\3\2\2\2,-\3\2\2\2-/\7\f"+
+		"\2\2(*\5\6\4\2)(\3\2\2\2*+\3\2\2\2+)\3\2\2\2+,\3\2\2\2,-\3\2\2\2-/\7\3"+
 		"\2\2.\60\5\b\5\2/.\3\2\2\2\60\61\3\2\2\2\61/\3\2\2\2\61\62\3\2\2\2\62"+
-		"\63\3\2\2\2\63\64\7\r\2\2\64\5\3\2\2\2\659\7\7\2\2\669\7\b\2\2\679\7\t"+
-		"\2\28\65\3\2\2\28\66\3\2\2\28\67\3\2\2\29\7\3\2\2\2:>\5\n\6\2;>\5\16\b"+
-		"\2<>\5\4\3\2=:\3\2\2\2=;\3\2\2\2=<\3\2\2\2>\t\3\2\2\2?@\5\f\7\2@A\7\17"+
-		"\2\2AB\5\22\n\2BC\7\16\2\2C\13\3\2\2\2DE\7\t\2\2E\r\3\2\2\2FG\5\20\t\2"+
-		"GH\7\23\2\2HI\5\22\n\2IJ\7\16\2\2J\17\3\2\2\2KL\7\n\2\2L\21\3\2\2\2MQ"+
-		"\5\24\13\2NQ\5\20\t\2OQ\5\30\r\2PM\3\2\2\2PN\3\2\2\2PO\3\2\2\2Q\23\3\2"+
-		"\2\2RW\7\3\2\2SW\7\4\2\2TW\7\5\2\2UW\7\6\2\2VR\3\2\2\2VS\3\2\2\2VT\3\2"+
-		"\2\2VU\3\2\2\2W\25\3\2\2\2XY\b\f\1\2YZ\7\5\2\2Zf\3\2\2\2[\\\f\5\2\2\\"+
-		"]\7\20\2\2]e\5\26\f\6^_\f\4\2\2_`\7\21\2\2`e\5\26\f\5ab\f\3\2\2bc\7\22"+
-		"\2\2ce\5\26\f\4d[\3\2\2\2d^\3\2\2\2da\3\2\2\2eh\3\2\2\2fd\3\2\2\2fg\3"+
-		"\2\2\2g\27\3\2\2\2hf\3\2\2\2il\b\r\1\2jm\5\24\13\2km\5\20\t\2lj\3\2\2"+
-		"\2lk\3\2\2\2my\3\2\2\2no\f\5\2\2op\7\22\2\2px\5\30\r\6qr\f\4\2\2rs\7\20"+
-		"\2\2sx\5\30\r\5tu\f\3\2\2uv\7\21\2\2vx\5\30\r\4wn\3\2\2\2wq\3\2\2\2wt"+
-		"\3\2\2\2x{\3\2\2\2yw\3\2\2\2yz\3\2\2\2z\31\3\2\2\2{y\3\2\2\2\17\35#+\61"+
-		"8=PVdflwy";
+		"\63\3\2\2\2\63\64\7\4\2\2\64\5\3\2\2\2\659\7\17\2\2\669\7\20\2\2\679\7"+
+		"\21\2\28\65\3\2\2\28\66\3\2\2\28\67\3\2\2\29\7\3\2\2\2:>\5\n\6\2;>\5\16"+
+		"\b\2<>\5\4\3\2=:\3\2\2\2=;\3\2\2\2=<\3\2\2\2>\t\3\2\2\2?@\5\f\7\2@A\7"+
+		"\6\2\2AB\5\22\n\2BC\7\5\2\2C\13\3\2\2\2DE\7\21\2\2E\r\3\2\2\2FG\5\20\t"+
+		"\2GH\7\n\2\2HI\5\22\n\2IJ\7\5\2\2J\17\3\2\2\2KL\7\22\2\2L\21\3\2\2\2M"+
+		"Q\5\24\13\2NQ\5\20\t\2OQ\5\30\r\2PM\3\2\2\2PN\3\2\2\2PO\3\2\2\2Q\23\3"+
+		"\2\2\2RW\7\13\2\2SW\7\f\2\2TW\7\r\2\2UW\7\16\2\2VR\3\2\2\2VS\3\2\2\2V"+
+		"T\3\2\2\2VU\3\2\2\2W\25\3\2\2\2XY\b\f\1\2YZ\7\r\2\2Zf\3\2\2\2[\\\f\5\2"+
+		"\2\\]\7\7\2\2]e\5\26\f\6^_\f\4\2\2_`\7\b\2\2`e\5\26\f\5ab\f\3\2\2bc\7"+
+		"\t\2\2ce\5\26\f\4d[\3\2\2\2d^\3\2\2\2da\3\2\2\2eh\3\2\2\2fd\3\2\2\2fg"+
+		"\3\2\2\2g\27\3\2\2\2hf\3\2\2\2il\b\r\1\2jm\5\24\13\2km\5\20\t\2lj\3\2"+
+		"\2\2lk\3\2\2\2my\3\2\2\2no\f\5\2\2op\7\t\2\2px\5\30\r\6qr\f\4\2\2rs\7"+
+		"\7\2\2sx\5\30\r\5tu\f\3\2\2uv\7\b\2\2vx\5\30\r\4wn\3\2\2\2wq\3\2\2\2w"+
+		"t\3\2\2\2x{\3\2\2\2yw\3\2\2\2yz\3\2\2\2z\31\3\2\2\2{y\3\2\2\2\17\35#+"+
+		"\618=PVdflwy";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
