@@ -52,6 +52,8 @@ public class Checker {
                 if (node.getChildren().get(1) instanceof Operation) {
                     checkOperationType(node.getChildren().get(1));
                 }
+                checkDeclaration(node);
+
             } else if (node instanceof Stylerule) {
                 stylerules.add(node);
             }
@@ -66,6 +68,32 @@ public class Checker {
         }
     }
 
+    //ch04
+    private void checkDeclaration(ASTNode node) {
+        Declaration dec = (Declaration) node;
+        String name = dec.property.name;
+        if (!(dec.expression instanceof Operation)) {
+            if (name.equalsIgnoreCase("width") || name.equalsIgnoreCase("height")) {
+                if (dec.expression instanceof VariableReference) {
+                    if (checkRefLiteralType(getVarRefInMap(dec.expression)) != ExpressionType.PIXEL) {
+                        dec.setError("Declaration value not valid.");
+                    }
+                } else if (!(dec.expression instanceof PixelLiteral)) {
+                    dec.setError("Declaration value not valid.");
+                }
+            } else if (name.equalsIgnoreCase("color") || name.equalsIgnoreCase("background-color")) {
+                if (dec.expression instanceof VariableReference) {
+                    if (checkRefLiteralType(getVarRefInMap(dec.expression)) != ExpressionType.COLOR) {
+                        dec.setError("Declaration value not valid.");
+                    }
+                } else if (!(dec.expression instanceof ColorLiteral)) {
+                    dec.setError("Declaration value not valid.");
+                }
+            }
+        }
+    }
+
+    //ch02 en ch03
     private ASTNode checkOperationType(ASTNode operation) {
         if (operation instanceof AddOperation || operation instanceof SubtractOperation) {
             checkAddSub(operation);
@@ -96,14 +124,14 @@ public class Checker {
                 }
             } else if (child instanceof VariableReference) {
                 ExpressionType type = checkRefLiteralType(getVarRefInMap(child));
-                if (litType == null){
+                if (litType == null) {
                     litType = type;
-                } else if (litType != type){
+                } else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
             }
         }
-        if (litType == ExpressionType .COLOR){
+        if (litType == ExpressionType.COLOR) {
             operationNode.setError("Add and Sub operations can not be used for colour codes");
         }
         return litType;
@@ -193,12 +221,6 @@ public class Checker {
     /**
      * https://stackoverflow.com/questions/1383797/java-hashmap-how-to-get-key-from-value
      * dank u
-     *
-     * @param map
-     * @param value
-     * @param <String>
-     * @param <Expression>
-     * @return
      */
     public static <String, Expression> Set<String> getKeysByValue(Map<String, Expression> map, Expression value) {
         return map.entrySet()
