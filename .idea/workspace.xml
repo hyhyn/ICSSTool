@@ -4,11 +4,8 @@
     <list default="true" id="dea7b9a9-654a-4097-9e5f-abdbdcdb43a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-nl.han.ica.icss.parser.ParserTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/nl.han.ica.icss.parser.ParserTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,25 +28,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="g4" value="1" />
-          <entry key="java" value="4" />
+          <entry key="icss" value="1" />
+          <entry key="java" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="ANTLR v4 grammar file" value="1" />
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="36" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="592" />
-          <entry key="txt" value="86" />
+          <entry key="java" value="4460" />
+          <entry key="txt" value="176" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="592" />
-          <entry key="PLAIN_TEXT" value="86" />
+          <entry key="JAVA" value="4460" />
+          <entry key="PLAIN_TEXT" value="176" />
         </counts>
       </usages-collector>
     </session>
@@ -59,30 +58,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/antlr4/nl/han/ica/icss/parser/ICSS.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="844">
-              <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+            <state relative-caret-position="158">
+              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3045">
+              <caret line="214" selection-start-line="214" selection-end-line="214" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="85" column="45" selection-start-line="85" selection-start-column="45" selection-end-line="85" selection-end-column="45" />
+            <state relative-caret-position="147">
+              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
               <folding>
-                <element signature="e#9571#9572#0" expanded="true" />
-                <element signature="e#9655#9656#0" expanded="true" />
+                <element signature="e#272#273#0" expanded="true" />
+                <element signature="e#323#324#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/VariableAssignment.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="870">
+              <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +108,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/antlr4/nl/han/ica/icss/parser/ICSS.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java" />
       </list>
     </option>
   </component>
@@ -260,7 +274,32 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="icss" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="icsstool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ICSSTool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="icss" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="icsstool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ICSSTool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="icss" type="462c0819:PsiDirectoryNode" />
+              <item name="transforms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="icsstool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ICSSTool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -279,7 +318,7 @@
     <property name="$PROJECT_DIR$/src/main/antlr4/nl/han/ica/icss/parser/ICSS.g4::/output-dir" value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/parser" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540817230554" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540937335222" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -328,7 +367,7 @@
       <updated>1540817075779</updated>
       <workItem from="1540817077222" duration="655000" />
       <workItem from="1540818996176" duration="1560000" />
-      <workItem from="1540906423291" duration="1458000" />
+      <workItem from="1540906423291" duration="20431000" />
     </task>
     <task id="LOCAL-00001" summary="CH02&#10;Controleer of de operanden van de operaties plus en min van gelijk type zijn en dat vermenigvuldigen enkel met scalaire waarden gebeurt. Je mag geen pixels bij percentages optellen bijvoorbeeld.&#10;&#10;CH03&#10;Controleer of er geen kleuren worden gebruikt in operaties (plus, min en keer).&#10;&#10;NOTE: NIET G4 OPNIEUW GENEREREN -GAAT IETS MIS MET DUPLICATE CLASSES">
       <created>1540817323212</created>
@@ -337,11 +376,25 @@
       <option name="project" value="LOCAL" />
       <updated>1540817323212</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="CH04&#10;Controleer of bij declaraties het type van de waarde klopt bij de stijleigen- schap. Declaraties zoals width: #ff0000 of color: 12px zijn natuurlijk onzin.">
+      <created>1540907961836</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540907961839</updated>
+    </task>
+    <task id="LOCAL-00003" summary="check fix, tostring generator, remove nesting werkend, eval expression niet werkend">
+      <created>1540934322143</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540934322143</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3673000" />
+    <option name="totallyTimeSpent" value="22646000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="23" width="1416" height="991" extended-state="0" />
@@ -364,10 +417,10 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32925472" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="13" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="13" weight="0.32925472" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -387,32 +440,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="CH02&#10;Controleer of de operanden van de operaties plus en min van gelijk type zijn en dat vermenigvuldigen enkel met scalaire waarden gebeurt. Je mag geen pixels bij percentages optellen bijvoorbeeld.&#10;&#10;CH03&#10;Controleer of er geen kleuren worden gebruikt in operaties (plus, min en keer).&#10;&#10;NOTE: NIET G4 OPNIEUW GENEREREN -GAAT IETS MIS MET DUPLICATE CLASSES" />
-    <option name="LAST_COMMIT_MESSAGE" value="CH02&#10;Controleer of de operanden van de operaties plus en min van gelijk type zijn en dat vermenigvuldigen enkel met scalaire waarden gebeurt. Je mag geen pixels bij percentages optellen bijvoorbeeld.&#10;&#10;CH03&#10;Controleer of er geen kleuren worden gebruikt in operaties (plus, min en keer).&#10;&#10;NOTE: NIET G4 OPNIEUW GENEREREN -GAAT IETS MIS MET DUPLICATE CLASSES" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java</url>
-          <line>39</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="CH04&#10;Controleer of bij declaraties het type van de waarde klopt bij de stijleigen- schap. Declaraties zoals width: #ff0000 of color: 12px zijn natuurlijk onzin." />
+    <MESSAGE value="check fix, tostring generator, remove nesting werkend, eval expression niet werkend" />
+    <option name="LAST_COMMIT_MESSAGE" value="check fix, tostring generator, remove nesting werkend, eval expression niet werkend" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/VariableReference.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/VariableAssignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -423,20 +459,147 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/Pipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="106" column="28" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/Literal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/literals/ColorLiteral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/operations/AddOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/literals/PixelLiteral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/VariableAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/Stylesheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/Selector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/level3.icss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/Expression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/PropertyName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/ASTNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/Stylerule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/antlr4/nl/han/ica/icss/parser/ICSS.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
-          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+        <state relative-caret-position="158">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="85" column="45" selection-start-line="85" selection-start-column="45" selection-end-line="85" selection-end-column="45" />
+        <state relative-caret-position="3045">
+          <caret line="214" selection-start-line="214" selection-end-line="214" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
           <folding>
-            <element signature="e#9571#9572#0" expanded="true" />
-            <element signature="e#9655#9656#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
           </folding>
         </state>
       </provider>

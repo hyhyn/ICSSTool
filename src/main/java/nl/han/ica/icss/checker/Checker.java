@@ -14,25 +14,17 @@ import nl.han.ica.icss.ast.operations.SubtractOperation;
 import nl.han.ica.icss.ast.types.*;
 
 public class Checker {
-
-    private LinkedList<HashMap<String, ExpressionType>> variableTypes;
-    static private int count = 0;
-    //hashmap( hashmap ( (hashmap)) map met expressions
-//    private HashMap<String, HashMap<String, Expression>> hashashmap;
-//    private HashMap<String, Expression> varAssignmentsMap;
+    //niet gebruikt
+    //private LinkedList<HashMap<String, ExpressionType>> variableTypes;
     private LinkedList<HashMap<String, Expression>> linkHashmap;
 
     public void check(AST ast) {
-        variableTypes = new LinkedList<>();
+        //variableTypes = new LinkedList<>();
         linkHashmap = new LinkedList<>();
 
         addExpressionsToList(ast.root.getChildren(), 0);
-
-        System.out.println("einde");
-        //printstructure();
     }
 
-    //return error
     private void addExpressionsToList(List<ASTNode> children, int level) {
         int currentlevel = level;
         linkHashmap.addFirst(new HashMap<>());
@@ -43,7 +35,6 @@ public class Checker {
                 children) {
             if (node instanceof VariableAssignment) {
                 linkHashmap.peekFirst().put(((VariableAssignment) node).name.name, ((VariableAssignment) node).expression);
-                //addToVariableTypes(node);
             } else if (node instanceof Declaration) {
                 linkHashmap.peekFirst().put(((Declaration) node).property.name, ((Declaration) node).expression);
                 if (node.getChildren().get(1) instanceof VariableReference) {
@@ -144,7 +135,6 @@ public class Checker {
     }
 
     private void checkMul(ASTNode operationNode) {
-        //check each child of the node if
         for (ASTNode child :
                 operationNode.getChildren()) {
             if (child instanceof Operation) {
@@ -208,7 +198,8 @@ public class Checker {
         boolean saveme = false;
         while (linklevel < linkHashmap.size() && !saveme) {
             HashMap map = linkHashmap.get(linklevel);
-            level = Integer.valueOf(getKeysByValue(map, null).toArray()[0].toString()); //Dat gevoel wanneer je van een keyset naar array naar string naar int gaat...
+            //Dat gevoel wanneer je van een keyset naar array naar string naar int gaat...
+            level = Integer.valueOf(getKeysByValue(map, null).toArray()[0].toString());
 
             if (map.containsKey(((VariableReference) node.getChildren().get(1)).name) && !linkmap.containsKey(level)) {
                 saveme = true;
@@ -220,9 +211,7 @@ public class Checker {
                 saveme = true;
             }
         }
-
     }
-
 
     /**
      * https://stackoverflow.com/questions/1383797/java-hashmap-how-to-get-key-from-value
@@ -236,6 +225,7 @@ public class Checker {
                 .collect(Collectors.toSet());
     }
 
+    //voor test doeleinden
     private void printstructure() {
         System.out.println("head");
         for (int i = 0; i < linkHashmap.size(); i++) {
@@ -248,6 +238,7 @@ public class Checker {
         System.out.println("tails");
     }
 
+    //voor test doeleinden
     private void printmap(HashMap map) {
         map.forEach((key, value) -> System.out.println(key + " = " + value));
     }

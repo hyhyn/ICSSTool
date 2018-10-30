@@ -29,16 +29,17 @@ public class EvalExpressions implements Transform {
         evaluate(ast.root.getChildren());
 
         removeAllVarAssignments(ast.root);
-        printstructure(variableValues);
+        printstructure();
     }
 
     private void evaluate(List<ASTNode> children) {
         List<ASTNode> styleRules = new ArrayList<>();
-        HashMap map = new HashMap();
+        HashMap<String, Literal> hashMap;
         for (ASTNode node :
                 children) {
+            hashMap = new HashMap<>();
             if (node instanceof VariableAssignment) {
-                writeToMap((VariableAssignment) node, map);
+                variableValues.add(writeToMap((VariableAssignment) node, hashMap));
             } else if (node instanceof Declaration) {
 
             } else if (node instanceof Stylerule) {
@@ -57,13 +58,15 @@ public class EvalExpressions implements Transform {
     }
 
     private HashMap writeToMap(VariableAssignment varAssign, HashMap map) {
-        System.out.println("writetomap");
         if (varAssign.expression instanceof Literal) {
+            System.out.println("writetomap?????");
             map.put(varAssign.name, varAssign.expression);
         } else if (varAssign.expression instanceof VariableReference) {
             map.put(varAssign.name, travelMap((VariableReference) varAssign.expression));
         } else if (varAssign.expression instanceof Operation) {
             map.put(varAssign.name, calcOperation((Operation) varAssign.expression));
+        } else {
+            System.out.println("wtf is er mis met dit ding/");
         }
         return map;
     }
@@ -142,8 +145,9 @@ public class EvalExpressions implements Transform {
 
     }
 
-    private void printstructure(LinkedList<HashMap<String, Literal>> map) {
+    private void printstructure() {
         System.out.println("head");
+        System.out.println(variableValues.size());
         for (int i = 0; i < variableValues.size(); i++) {
             HashMap a = variableValues.get(i);
             a.forEach((key, value) -> System.out.println(key + " = " + value));
