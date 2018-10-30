@@ -4,7 +4,7 @@ import nl.han.ica.icss.ast.*;
 
 public class Generator {
 
-	public String generate(AST ast) {
-        return "";
-	}
+    public String generate(AST ast) {
+        return ast.root.toString();
+    }
 }

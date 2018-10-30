@@ -112,6 +112,8 @@ public class Checker {
                 ExpressionType type = checkAddSub(child);
                 if (litType == null) {
                     litType = type;
+                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                    //dit mag
                 } else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
@@ -119,6 +121,8 @@ public class Checker {
                 ExpressionType type = checkRefLiteralType(child);
                 if (litType == null) {
                     litType = type;
+                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                    //dit mag
                 } else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
@@ -126,6 +130,8 @@ public class Checker {
                 ExpressionType type = checkRefLiteralType(getVarRefInMap(child));
                 if (litType == null) {
                     litType = type;
+                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                    //dit mag
                 } else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
