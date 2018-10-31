@@ -47,16 +47,17 @@ public class Checker {
 
             } else if (node instanceof Stylerule) {
                 stylerules.add(node);
+                addExpressionsToList(node.getChildren(), level);
             }
         }
         currentlevel++;
-        children.retainAll(stylerules);
-        if (!children.isEmpty()) {
-            for (ASTNode node :
-                    children) {
-                addExpressionsToList(node.getChildren(), currentlevel);
-            }
-        }
+//        children.retainAll(stylerules);
+//        if (!children.isEmpty()) {
+//            for (ASTNode node :
+//                    children) {
+//                addExpressionsToList(node.getChildren(), currentlevel);
+//            }
+//        }
     }
 
     //ch04
@@ -103,27 +104,33 @@ public class Checker {
                 ExpressionType type = checkAddSub(child);
                 if (litType == null) {
                     litType = type;
-                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                }
+                else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
                     //dit mag
-                } else if (litType != type) {
+                }
+                else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
             } else if (child instanceof Literal) {
                 ExpressionType type = checkRefLiteralType(child);
                 if (litType == null) {
                     litType = type;
-                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
-                    //dit mag
-                } else if (litType != type) {
+                }
+                else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                //dit mag
+                }
+                else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
             } else if (child instanceof VariableReference) {
                 ExpressionType type = checkRefLiteralType(getVarRefInMap(child));
                 if (litType == null) {
                     litType = type;
-                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                }
+                else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
                     //dit mag
-                } else if (litType != type) {
+                }
+                else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
             }
@@ -242,4 +249,5 @@ public class Checker {
     private void printmap(HashMap map) {
         map.forEach((key, value) -> System.out.println(key + " = " + value));
     }
+    //wtfman
 }

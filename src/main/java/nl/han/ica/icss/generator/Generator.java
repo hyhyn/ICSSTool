@@ -20,12 +20,10 @@ public class Generator {
     }
 
     private void addStyleRule(Stylerule stylerule, StringBuilder builder) {
-        if (stylerule.selectors.size() == 2) {
-            builder.append(stylerule.selectors.get(1))
-                    .append(" ")
-                    .append(stylerule.selectors.get(0));
-        } else {
-            builder.append(stylerule.selectors.get(0));
+
+        for (int i = stylerule.selectors.size()-1; i >=0; i--) {
+            builder.append(stylerule.selectors.get(i))
+                    .append(" ");
         }
         builder.append(" {")
                 .append(System.lineSeparator());

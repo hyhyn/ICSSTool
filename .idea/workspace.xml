@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,26 +30,28 @@
         <counts>
           <entry key="g4" value="1" />
           <entry key="icss" value="1" />
-          <entry key="java" value="36" />
+          <entry key="java" value="38" />
+          <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="ANTLR v4 grammar file" value="1" />
-          <entry key="JAVA" value="36" />
+          <entry key="JAVA" value="38" />
+          <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4460" />
-          <entry key="txt" value="176" />
+          <entry key="java" value="4710" />
+          <entry key="txt" value="266" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4460" />
-          <entry key="PLAIN_TEXT" value="176" />
+          <entry key="JAVA" value="4710" />
+          <entry key="PLAIN_TEXT" value="266" />
         </counts>
       </usages-collector>
     </session>
@@ -67,17 +70,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
-              <caret line="214" selection-start-line="214" selection-end-line="214" />
+            <state relative-caret-position="378">
+              <caret line="249" column="46" selection-start-line="249" selection-start-column="36" selection-end-line="249" selection-end-column="46" />
+              <folding>
+                <element signature="e#9741#9742#0" expanded="true" />
+                <element signature="e#9825#9826#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            <state relative-caret-position="176">
+              <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
               <folding>
                 <element signature="e#272#273#0" expanded="true" />
                 <element signature="e#323#324#0" expanded="true" />
@@ -86,19 +93,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+            <state relative-caret-position="384">
+              <caret line="36" column="62" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#254#255#0" expanded="true" />
+                <element signature="e#288#289#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>system.out</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,10 +122,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/antlr4/nl/han/ica/icss/parser/ICSS.g4" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java" />
       </list>
     </option>
   </component>
@@ -318,7 +332,7 @@
     <property name="$PROJECT_DIR$/src/main/antlr4/nl/han/ica/icss/parser/ICSS.g4::/output-dir" value="$PROJECT_DIR$/src/main/java/nl/han/ica/icss/parser" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540937335222" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540973836595" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -367,7 +381,7 @@
       <updated>1540817075779</updated>
       <workItem from="1540817077222" duration="655000" />
       <workItem from="1540818996176" duration="1560000" />
-      <workItem from="1540906423291" duration="20431000" />
+      <workItem from="1540906423291" duration="23352000" />
     </task>
     <task id="LOCAL-00001" summary="CH02&#10;Controleer of de operanden van de operaties plus en min van gelijk type zijn en dat vermenigvuldigen enkel met scalaire waarden gebeurt. Je mag geen pixels bij percentages optellen bijvoorbeeld.&#10;&#10;CH03&#10;Controleer of er geen kleuren worden gebruikt in operaties (plus, min en keer).&#10;&#10;NOTE: NIET G4 OPNIEUW GENEREREN -GAAT IETS MIS MET DUPLICATE CLASSES">
       <created>1540817323212</created>
@@ -390,11 +404,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540934322143</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="generator doet het nu echt. Voor zo verre ik weet... EvalExpressions maakt me hopeloos">
+      <created>1540937446016</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540937446016</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22646000" />
+    <option name="totallyTimeSpent" value="25567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="23" width="1416" height="991" extended-state="0" />
@@ -419,7 +440,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32925472" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32925472" />
       <window_info anchor="bottom" id="ANTLR Preview" order="13" weight="0.32925472" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -442,7 +463,8 @@
     <MESSAGE value="CH02&#10;Controleer of de operanden van de operaties plus en min van gelijk type zijn en dat vermenigvuldigen enkel met scalaire waarden gebeurt. Je mag geen pixels bij percentages optellen bijvoorbeeld.&#10;&#10;CH03&#10;Controleer of er geen kleuren worden gebruikt in operaties (plus, min en keer).&#10;&#10;NOTE: NIET G4 OPNIEUW GENEREREN -GAAT IETS MIS MET DUPLICATE CLASSES" />
     <MESSAGE value="CH04&#10;Controleer of bij declaraties het type van de waarde klopt bij de stijleigen- schap. Declaraties zoals width: #ff0000 of color: 12px zijn natuurlijk onzin." />
     <MESSAGE value="check fix, tostring generator, remove nesting werkend, eval expression niet werkend" />
-    <option name="LAST_COMMIT_MESSAGE" value="check fix, tostring generator, remove nesting werkend, eval expression niet werkend" />
+    <MESSAGE value="generator doet het nu echt. Voor zo verre ik weet... EvalExpressions maakt me hopeloos" />
+    <option name="LAST_COMMIT_MESSAGE" value="generator doet het nu echt. Voor zo verre ik weet... EvalExpressions maakt me hopeloos" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/VariableReference.java">
@@ -456,13 +478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/Pipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="106" column="28" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -522,18 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/ast/Expression.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -576,30 +579,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/generator/Generator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+        <state relative-caret-position="415">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/Pipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/checker/Checker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="214" selection-start-line="214" selection-end-line="214" />
+        <state relative-caret-position="378">
+          <caret line="249" column="46" selection-start-line="249" selection-start-column="36" selection-end-line="249" selection-end-column="46" />
+          <folding>
+            <element signature="e#9741#9742#0" expanded="true" />
+            <element signature="e#9825#9826#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/EvalExpressions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        <state relative-caret-position="176">
+          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
           <folding>
             <element signature="e#272#273#0" expanded="true" />
             <element signature="e#323#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/han/ica/icss/transforms/RemoveNesting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="36" column="62" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
           </folding>
         </state>
       </provider>

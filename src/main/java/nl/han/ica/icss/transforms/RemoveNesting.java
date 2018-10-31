@@ -16,21 +16,26 @@ public class RemoveNesting implements Transform {
 
     private void removeNesting(AST ast) {
         addToRoot = new ArrayList<>();
-        addParentSelector(ast.root.getChildren(), null);
+        addParentSelector(ast.root.getChildren());
         removeNestedRules(ast, null, ast.root.getChildren());
         for (ASTNode node : addToRoot) {
             ast.root.addChild(node);
         }
     }
 
-    private void addParentSelector(List<ASTNode> astNodes, Selector selector) {
+    private void addParentSelector(List<ASTNode> astNodes) {
         for (ASTNode node : astNodes) {
             if (node instanceof Stylerule) {
                 if (node.getChildren() != null) {
-                    addParentSelector(node.getChildren(), ((Stylerule) node).selectors.get(0));
-                }
-                if (selector != null) {
-                    node.addChild(selector);
+                    for (ASTNode childNode :
+                            node.getChildren()) {
+                        if (childNode instanceof Stylerule) {
+                            for (int i = 0; i < ((Stylerule) node).selectors.size(); i++) {
+                                childNode.addChild(((Stylerule) node).selectors.get(i));
+                            }
+                            addParentSelector(node.getChildren());
+                        }
+                    }
                 }
             }
         }

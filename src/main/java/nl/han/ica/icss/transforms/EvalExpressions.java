@@ -29,23 +29,24 @@ public class EvalExpressions implements Transform {
         evaluate(ast.root.getChildren());
 
         removeAllVarAssignments(ast.root);
-        printstructure();
+        //printstructure();
     }
 
     private void evaluate(List<ASTNode> children) {
         List<ASTNode> styleRules = new ArrayList<>();
-        HashMap<String, Literal> hashMap;
+        HashMap<String, Literal> hashMap = new HashMap<>();
         for (ASTNode node :
                 children) {
-            hashMap = new HashMap<>();
+            //System.out.println(node.toString());
             if (node instanceof VariableAssignment) {
-                variableValues.add(writeToMap((VariableAssignment) node, hashMap));
+                writeToMap((VariableAssignment) node, hashMap);
             } else if (node instanceof Declaration) {
 
             } else if (node instanceof Stylerule) {
                 styleRules.add(node);
             }
         }
+        variableValues.add(hashMap);
         children.retainAll(styleRules);
         if (!styleRules.isEmpty()) {
             if (!children.isEmpty()) {
