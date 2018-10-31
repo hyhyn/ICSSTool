@@ -14,85 +14,13 @@ import nl.han.ica.icss.ast.operations.SubtractOperation;
 import nl.han.ica.icss.ast.types.*;
 
 public class Checker {
-    //niet gebruikt
-    //private LinkedList<HashMap<String, ExpressionType>> variableTypes;
     private LinkedList<HashMap<String, Expression>> linkHashmap;
 
     public void check(AST ast) {
-        //variableTypes = new LinkedList<>();
         linkHashmap = new LinkedList<>();
-        //checkAll(ast, ast.root.getChildren());
         addExpressionsToList(ast.root.getChildren(), 0);
     }
 
-    private void checkAll(AST ast, List<ASTNode> children) {
-        for (ASTNode node :
-                children) {
-            if (node instanceof VariableAssignment) {
-                checkVarAssign((VariableAssignment) node);
-            }
-            if (node instanceof Stylerule) {
-                //checkStylerule((Stylerule) node);
-            }
-            if (node instanceof Declaration) {
-                checkDeclaration((Declaration) node);
-            }
-        }
-    }
-
-    private void checkVarAssign(VariableAssignment varAsign) {
-        if (varAsign.expression instanceof Literal) {
-
-        } else if (varAsign.expression instanceof Operation) {
-            if (!checkOperation((Operation) varAsign.expression)) {
-                varAsign.expression.setError("something went wrong");
-            }
-        } else if (varAsign.expression instanceof VariableReference) {
-            if (!checkVarExist((VariableReference) varAsign.expression)) {
-                varAsign.setError("Var reference does not exist");
-            }
-        }
-    }
-
-    private boolean checkOperation(Operation operation) {
-        if (operation.lhs instanceof Operation) {
-            if (!checkOperation((Operation) operation.lhs)) {
-                operation.lhs.setError("operation error");
-            }
-        }
-        if (operation.rhs instanceof MultiplyOperation) {
-            if (!checkOperation((MultiplyOperation) operation.rhs)) {
-                operation.rhs.setError("operation error");
-            }
-        }
-
-        if (operation instanceof MultiplyOperation) {
-            return operation.lhs instanceof ScalarLiteral;
-        } else if (operation instanceof SubtractOperation) {
-            if (!(operation.rhs instanceof MultiplyOperation)) {
-                return checkRefLiteralType(operation.rhs) == checkRefLiteralType(operation.lhs);
-            }
-        } else if (operation instanceof AddOperation) {
-            if (!(operation.rhs instanceof MultiplyOperation)) {
-                return checkRefLiteralType(operation.rhs) == checkRefLiteralType(operation.lhs);
-            }
-        }
-        return false;
-    }
-
-    //kijkt of de reference bestaat.
-    private boolean checkVarExist(VariableReference node) {
-        for (HashMap map :
-                linkHashmap) {
-            if (map.get(node.name) != null) {
-
-                return true;
-            }
-        }
-        return false;
-    }
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void addExpressionsToList(List<ASTNode> children, int level) {
         int currentlevel = level;
         linkHashmap.addFirst(new HashMap<>());
@@ -106,10 +34,7 @@ public class Checker {
             } else if (node instanceof Declaration) {
                 linkHashmap.peekFirst().put(((Declaration) node).property.name, ((Declaration) node).expression);
                 if (node.getChildren().get(1) instanceof VariableReference) {
-                    //checkUndefVar(node);
-                    if (!checkVarExist((VariableReference) node.getChildren().get(1))) {
-                        node.setError("undef var");
-                    }
+                    checkUndefVar(node);
                 }
                 if (node.getChildren().get(1) instanceof Operation) {
                     checkOperationType(node.getChildren().get(1));
@@ -118,10 +43,9 @@ public class Checker {
 
             } else if (node instanceof Stylerule) {
                 stylerules.add(node);
-                addExpressionsToList(node.getChildren(), level);
+                addExpressionsToList(node.getChildren(), currentlevel);
             }
-            //linkHashmap.removeFirst(); //het het mis gaat ligt het hieraan
-            level++;
+            currentlevel++;
         }
     }
 
@@ -241,6 +165,7 @@ public class Checker {
                 return lit;
             }
         }
+        ref.setError("Variable not set");
         return null;
     }
 
@@ -263,7 +188,6 @@ public class Checker {
         boolean saveme = false;
         while (linklevel < linkHashmap.size() && !saveme) {
             HashMap map = linkHashmap.get(linklevel);
-            //Dat gevoel wanneer je van een keyset naar array naar string naar int gaat...
             level = Integer.valueOf(getKeysByValue(map, null).toArray()[0].toString());
 
             if (map.containsKey(((VariableReference) node.getChildren().get(1)).name) && !linkmap.containsKey(level)) {
@@ -272,16 +196,12 @@ public class Checker {
                 linkmap.put(level, level);
                 linklevel++;
             } else {
-                node.getChildren().get(1).setError("var bestaat niet");
+                node.getChildren().get(1).setError("Variable not set");
                 saveme = true;
             }
         }
     }
 
-    /**
-     * https://stackoverflow.com/questions/1383797/java-hashmap-how-to-get-key-from-value
-     * dank u
-     */
     public static <String, Expression> Set<String> getKeysByValue(Map<String, Expression> map, Expression value) {
         return map.entrySet()
                 .stream()
@@ -289,23 +209,4 @@ public class Checker {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toSet());
     }
-
-    //voor test doeleinden
-    private void printstructure() {
-        System.out.println("head");
-        for (int i = 0; i < linkHashmap.size(); i++) {
-            HashMap a = linkHashmap.get(i);
-            System.out.println("dit is de huidige it van i" + i);
-            a.forEach((key, value) -> System.out.println(key + " = " + value));
-            System.out.println("DOOT");
-
-        }
-        System.out.println("tails");
-    }
-
-    //voor test doeleinden
-    private void printmap(HashMap map) {
-        map.forEach((key, value) -> System.out.println(key + " = " + value));
-    }
-    //wtfman
 }

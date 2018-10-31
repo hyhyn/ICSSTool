@@ -60,20 +60,17 @@ public class EvalExpressions implements Transform {
 
     private HashMap writeToMap(VariableAssignment varAssign, HashMap map) {
         if (varAssign.expression instanceof Literal) {
-            System.out.println("writetomap?????");
             map.put(varAssign.name, varAssign.expression);
         } else if (varAssign.expression instanceof VariableReference) {
             map.put(varAssign.name, travelMap((VariableReference) varAssign.expression));
         } else if (varAssign.expression instanceof Operation) {
             map.put(varAssign.name, calcOperation((Operation) varAssign.expression));
         } else {
-            System.out.println("wtf is er mis met dit ding/");
         }
         return map;
     }
 
     private Literal calcOperation(Operation operation) {
-        System.out.println("calcOperation");
         Literal literal = null;
         Literal lhs = null;
         Literal rhs = null;
