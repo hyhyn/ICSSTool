@@ -21,10 +21,78 @@ public class Checker {
     public void check(AST ast) {
         //variableTypes = new LinkedList<>();
         linkHashmap = new LinkedList<>();
-
+        //checkAll(ast, ast.root.getChildren());
         addExpressionsToList(ast.root.getChildren(), 0);
     }
 
+    private void checkAll(AST ast, List<ASTNode> children) {
+        for (ASTNode node :
+                children) {
+            if (node instanceof VariableAssignment) {
+                checkVarAssign((VariableAssignment) node);
+            }
+            if (node instanceof Stylerule) {
+                //checkStylerule((Stylerule) node);
+            }
+            if (node instanceof Declaration) {
+                checkDeclaration((Declaration) node);
+            }
+        }
+    }
+
+    private void checkVarAssign(VariableAssignment varAsign) {
+        if (varAsign.expression instanceof Literal) {
+
+        } else if (varAsign.expression instanceof Operation) {
+            if (!checkOperation((Operation) varAsign.expression)) {
+                varAsign.expression.setError("something went wrong");
+            }
+        } else if (varAsign.expression instanceof VariableReference) {
+            if (!checkVarExist((VariableReference) varAsign.expression)) {
+                varAsign.setError("Var reference does not exist");
+            }
+        }
+    }
+
+    private boolean checkOperation(Operation operation) {
+        if (operation.lhs instanceof Operation) {
+            if (!checkOperation((Operation) operation.lhs)) {
+                operation.lhs.setError("operation error");
+            }
+        }
+        if (operation.rhs instanceof MultiplyOperation) {
+            if (!checkOperation((MultiplyOperation) operation.rhs)) {
+                operation.rhs.setError("operation error");
+            }
+        }
+
+        if (operation instanceof MultiplyOperation) {
+            return operation.lhs instanceof ScalarLiteral;
+        } else if (operation instanceof SubtractOperation) {
+            if (!(operation.rhs instanceof MultiplyOperation)) {
+                return checkRefLiteralType(operation.rhs) == checkRefLiteralType(operation.lhs);
+            }
+        } else if (operation instanceof AddOperation) {
+            if (!(operation.rhs instanceof MultiplyOperation)) {
+                return checkRefLiteralType(operation.rhs) == checkRefLiteralType(operation.lhs);
+            }
+        }
+        return false;
+    }
+
+    //kijkt of de reference bestaat.
+    private boolean checkVarExist(VariableReference node) {
+        for (HashMap map :
+                linkHashmap) {
+            if (map.get(node.name) != null) {
+
+                return true;
+            }
+        }
+        return false;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void addExpressionsToList(List<ASTNode> children, int level) {
         int currentlevel = level;
         linkHashmap.addFirst(new HashMap<>());
@@ -38,7 +106,10 @@ public class Checker {
             } else if (node instanceof Declaration) {
                 linkHashmap.peekFirst().put(((Declaration) node).property.name, ((Declaration) node).expression);
                 if (node.getChildren().get(1) instanceof VariableReference) {
-                    checkUndefVar(node);
+                    //checkUndefVar(node);
+                    if (!checkVarExist((VariableReference) node.getChildren().get(1))) {
+                        node.setError("undef var");
+                    }
                 }
                 if (node.getChildren().get(1) instanceof Operation) {
                     checkOperationType(node.getChildren().get(1));
@@ -49,15 +120,9 @@ public class Checker {
                 stylerules.add(node);
                 addExpressionsToList(node.getChildren(), level);
             }
+            //linkHashmap.removeFirst(); //het het mis gaat ligt het hieraan
+            level++;
         }
-        currentlevel++;
-//        children.retainAll(stylerules);
-//        if (!children.isEmpty()) {
-//            for (ASTNode node :
-//                    children) {
-//                addExpressionsToList(node.getChildren(), currentlevel);
-//            }
-//        }
     }
 
     //ch04
@@ -104,33 +169,27 @@ public class Checker {
                 ExpressionType type = checkAddSub(child);
                 if (litType == null) {
                     litType = type;
-                }
-                else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
                     //dit mag
-                }
-                else if (litType != type) {
+                } else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
             } else if (child instanceof Literal) {
                 ExpressionType type = checkRefLiteralType(child);
                 if (litType == null) {
                     litType = type;
-                }
-                else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
-                //dit mag
-                }
-                else if (litType != type) {
+                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                    //dit mag
+                } else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
             } else if (child instanceof VariableReference) {
                 ExpressionType type = checkRefLiteralType(getVarRefInMap(child));
                 if (litType == null) {
                     litType = type;
-                }
-                else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
+                } else if (type == ExpressionType.SCALAR || type == ExpressionType.PIXEL) {
                     //dit mag
-                }
-                else if (litType != type) {
+                } else if (litType != type) {
                     child.setError("Add and Sub operation can only be used for equal types.");
                 }
             }
@@ -198,7 +257,6 @@ public class Checker {
 
     //ch01
     private void checkUndefVar(ASTNode node) {
-        ListIterator a = linkHashmap.listIterator();//werkt niet
         int linklevel = 0; //van linkmap
         int level = -1; //in hashmap
         HashMap<Integer, Integer> linkmap = new HashMap<>();
